@@ -1,6 +1,14 @@
 # CLIP SHORT
 
-1. Buka `CLIP SHORT Studio.exe` pada Windows 64-bit.
+## Muat turun untuk Windows
+
+**[⬇ Muat turun CLIP-SHORT-Studio-Setup.exe](https://github.com/Firdauspeace/CLIP-SHORT/releases/latest/download/CLIP-SHORT-Studio-Setup.exe)**
+
+Buka `CLIP-SHORT-Studio-Setup.exe` dan ikut arahan pemasangan. Sambungan internet diperlukan semasa Setup memuat turun FFmpeg, FFprobe dan Deno. Selepas selesai, buka **CLIP SHORT Studio** melalui Start Menu. [Semua keluaran](https://github.com/Firdauspeace/CLIP-SHORT/releases)
+
+## Cara guna
+
+1. Buka **CLIP SHORT Studio** pada Windows 10 atau 11 64-bit.
 2. Tampal pautan video YouTube, Facebook, TikTok atau Instagram, atau klik **Pilih video** untuk membuka fail tempatan.
 3. Dalam **Studio**, pilih tindakan dan folder hasil, kemudian klik **Mula**. Folder lalai ialah `Exports` di sebelah aplikasi.
 4. Klik klip pada garis masa atau senarai hasil untuk melihat pratonton. Klik **Main video** untuk membuka klip dalam pemain lalai Windows.
@@ -18,7 +26,7 @@ Untuk render, pilih **9:16**, **16:9**, **1:1**, **4:5** atau **Nisbah asal**. M
 
 ## Keperluan
 
-EXE menyertakan Python/Tkinter dan `yt-dlp` Windows 2026.11.23. Aplikasi menggunakan FFmpeg dan FFprobe melalui `PATH` atau dari folder `bin` di sebelah EXE. Kedua-duanya sudah ditemui pada PC ini. Aplikasi menggunakan Node.js jika tersedia untuk pemprosesan YouTube. Untuk kemas kini enjin muat turun, letakkan `yt-dlp.exe` baharu dalam folder `bin`. [FFmpeg](https://ffmpeg.org/download.html) · [yt-dlp](https://github.com/yt-dlp/yt-dlp/releases) · [Node.js](https://nodejs.org/en/download)
+EXE menyertakan Python/Tkinter dan `yt-dlp` Windows 2026.11.23. Setup memasang FFmpeg, FFprobe dan Deno dalam folder aplikasi. Untuk menjalankan binaan tanpa Setup, sediakan FFmpeg dan FFprobe dalam `PATH` atau folder `bin` di sebelah EXE. Aplikasi boleh menggunakan Deno atau Node.js untuk pautan YouTube. Untuk kemas kini enjin muat turun, letakkan `yt-dlp.exe` baharu dalam folder `bin`. [FFmpeg](https://ffmpeg.org/download.html) · [yt-dlp](https://github.com/yt-dlp/yt-dlp/releases) · [Deno](https://github.com/denoland/deno/releases)
 
 Gunakan video yang anda miliki atau dibenarkan untuk muat turun. Kebolehcapaian bergantung pada pautan dan platform. Jika pautan gagal tetapi anda ada fail videonya, guna **Pilih video** untuk potong atau render fail itu.
 
@@ -35,4 +43,4 @@ python -m pip install pyinstaller
 python -m PyInstaller --onefile --windowed --name "CLIP SHORT Studio" --add-data "bin/yt-dlp.exe:." clip_short.pyw
 ```
 
-Fail aplikasi dihasilkan dalam folder `dist`. Binaan sedia guna tersedia pada halaman Releases di GitHub.
+Fail aplikasi dihasilkan dalam folder `dist`. Untuk membina `Setup.exe` daripada binaan tersebut, buka `installer.iss` dalam Inno Setup 7.1.1 dan pilih **Build → Compile**. [Inno Setup](https://jrsoftware.org/inno-setup/downloads)

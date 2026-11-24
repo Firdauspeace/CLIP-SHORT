@@ -29,7 +29,9 @@ HIDDEN = getattr(subprocess, 'CREATE_NO_WINDOW', 0)
 def executable(name):
     filename = name + '.exe'
     bundled = Path(getattr(sys, '_MEIPASS', HERE))
-    for path in (HERE / 'bin' / filename, HERE / filename, bundled / filename):
+    bin_dir = HERE / 'bin'
+    installed_ffmpeg = bin_dir / 'ffmpeg-9.0.2-essentials_build' / 'bin'
+    for path in (bin_dir / filename, installed_ffmpeg / filename, HERE / filename, bundled / filename):
         if path.is_file():
             return str(path)
     return shutil.which(name)
@@ -94,7 +96,9 @@ def download_args(url, quality, ffmpeg, staging):
     if quality != 'Terbaik':
         sorting = f'res:{quality[:-1]},{sorting}'
     args += ['-S', sorting]
-    if node := executable('node'):
+    if deno := executable('deno'):
+        args += ['--js-runtimes', 'deno:' + deno]
+    elif node := executable('node'):
         args += ['--js-runtimes', 'node:' + node]
     args += ['--remote-components', 'ejs:github']
     return [*args, '--', url]
