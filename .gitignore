@@ -1,0 +1,7 @@
+__pycache__/
+Exports/
+bin/
+build/
+dist/
+*.spec
+*.exe
